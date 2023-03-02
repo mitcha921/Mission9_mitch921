@@ -1,0 +1,34 @@
+﻿@{
+}
+
+@model BooksViewModel
+
+<h1 class="card card-outline-primary" style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">Books</h1>
+
+@foreach (Book b in Model.Books)
+{
+    <div class="row">
+        <div class="col-md-4">
+            <h3 class="text-primary font-weight-bold">@b.Title</h3>
+            <p class="text-muted"><span class="font-weight-bold">by </span> @b.Author <br /> <span class="font-weight-bold">Publisher:</span> @b.Publisher</p>
+            <p class="mb-1"><span class="font-weight-bold">Price:</span> $@b.Price</p>
+        </div>
+        <div class="col-md-8">
+            <ul class="list-group">
+                <li class="list-group-item"><span class="font-weight-bold">ISBN:</span> @b.Isbn</li>
+                <li class="list-group-item"><span class="font-weight-bold">Classification:</span> @b.Classification</li>
+                <li class="list-group-item"><span class="font-weight-bold">Category:</span> @b.Category</li>
+                <li class="list-group-item"><span class="font-weight-bold">Page Count:</span> @b.PageCount</li>
+            </ul>
+        </div>
+    </div>
+    <hr />
+}
+
+
+<div page-model="@Model.PageInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark"
+     page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+
+
+
+
