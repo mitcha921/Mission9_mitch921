@@ -1,7 +1,7 @@
 ﻿@{
 }
 @model Cart
-
+@* give summary of whats in the cart *@
 <div class="">
     @if (Model.Items.Count() > 0)
     {
@@ -10,7 +10,8 @@
             @Model.Items.Sum(x => x.Quantity) item(s)
             @Model.CalculateTotal().ToString("c")
         </small>
-    }
+    } 
+    @* button sends you to cart *@
     <a class="btn btn-sm btn-secondary navbar-btn" asp-page="/AddToCart"
        asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
         <i class="fa fa-shopping-cart"></i>
