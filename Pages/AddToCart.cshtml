@@ -22,6 +22,14 @@
             <td>@i.Quantity</td>
             <td>$@i.Book.Price</td>
             <td>$@(i.Quantity * i.Book.Price)</td>
+            
+            <td class="text-center">
+                <form method="post" asp-page-handler="Remove">
+                    <input type="hidden" name="bookID" value="@i.Book.BookId" />
+                    <input type="hidden" name="returnUrl" calue="@Model.ReturnUrl" />
+                    <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                </form>
+            </td>
         </tr>
         }
     </tbody>
@@ -35,5 +43,7 @@
 
 <div>
     @*Book icon added*@
-<a class="btn btn-primary" href="@Model.ReturnUrl"><i class="bi bi-book"></i> Continue Shopping</a>
+    <a class="btn btn-primary" href="@Model.ReturnUrl"><i class="bi bi-book"></i> Continue Shopping</a>
+    <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">Checkout</a>
+
 </div>
